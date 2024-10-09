@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/home/lyka/Code/WorkTimer/build",
+  "command": "/nix/store/zznja5f8v3jafffyah1rk46vpfcn38dv-gcc-wrapper-13.3.0/bin/g++   -g -o CMakeFiles/WorkTimer.dir/src/main.cpp.o -c /home/lyka/Code/WorkTimer/src/main.cpp",
+  "file": "/home/lyka/Code/WorkTimer/src/main.cpp",
+  "output": "CMakeFiles/WorkTimer.dir/src/main.cpp.o"
+}
+]

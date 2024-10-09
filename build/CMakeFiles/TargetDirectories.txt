@@ -1,0 +1,3 @@
+/home/lyka/Code/WorkTimer/build/CMakeFiles/WorkTimer.dir
+/home/lyka/Code/WorkTimer/build/CMakeFiles/edit_cache.dir
+/home/lyka/Code/WorkTimer/build/CMakeFiles/rebuild_cache.dir

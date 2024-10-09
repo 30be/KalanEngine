@@ -1,0 +1,7 @@
+# Checks: '-*,readability-*,modernize-*'
+Checks: '-*,bugprone-*,cert-*,cppcoreguidelines-*,-cppcoreguidelines-macro-usage,-cppcoreguidelines-pro-type-reinterpret-cast,-cppcoreguidelines-pro-type-union-access,-cppcoreguidelines-pro-bounds-pointer-arithmetic,-cppcoreguidelines-pro-type-vararg,google-*,hicpp-*,-hicpp-vararg,misc-*,modernize-*,performance-*,readability-*,-readability-named-parameter, -cppcoreguidelines-pro-bounds-array-to-pointer-decay, -hicpp-signed-bitwise, -hicpp-no-array-decay, -cppcoreguidelines-pro-bounds-constant-array-index, -bugprone-easily-swappable-parameters, -cppcoreguidelines-avoid-magic-numbers, -readability-magic-numbers, -cert-msc50-cpp, -cert-msc51-cpp, -cert-msc30-c, -readability-identifier-length, -misc-non-private-member-variables-in-classes'
+CheckOptions:
+  - key: modernize.UseTrailingReturnType
+    value: 'false'  # Disable trailing return type suggestions
+  - key: readability.LineLength
+    value: '140'    # Set maximum line length to 140 characters
