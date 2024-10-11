@@ -9,33 +9,39 @@
 #include <iostream>
 #include <thread>
 
-#include "renderer/renderer.hpp"
-class engine { // NOLINT
-private:
-  SDL_Window *Window;
-  renderer Renderer;
-
+#include "vulkan/vulkan.hpp"
+class sdl {
 public:
-  engine() {
-    std::cout << "Engine constructed!\n";
+  SDL_Window *Window;
+  sdl() {
     if (SDL_Init(SDL_INIT_VIDEO) < 0) {
       throw std::runtime_error("Failed to initialize SDL:" + std::string(SDL_GetError()));
     }
+    Window = SDL_CreateWindow("Vulkan Engine", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 1920, 1080,
+                              SDL_WINDOW_VULKAN | SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE);
     SDL_Vulkan_LoadLibrary(nullptr);
-    const int InitialWindowWidth = 1920;
-    const int InitialWindowHeight = 1080;
-    Window = SDL_CreateWindow("Vulkan Engine", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, InitialWindowWidth,
-                              InitialWindowHeight, SDL_WINDOW_VULKAN | SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE);
     if (Window == nullptr) {
       std::cout << SDL_GetError() << std::endl;
       throw std::runtime_error("Failed to create window");
     }
-    Renderer = renderer(Window);
   }
-  ~engine() {
+  sdl(const sdl &) = delete;
+  sdl(sdl &&) = delete;
+  auto operator=(const sdl &) -> sdl & = delete;
+  auto operator=(sdl &&) -> sdl & = delete;
+  ~sdl() {
     SDL_DestroyWindow(Window);
     SDL_Quit();
   }
+};
+class engine { // NOLINT
+private:
+  sdl SDL;
+  vulkan Vulkan;
+
+public:
+  engine() : Vulkan{SDL.Window} { std::cout << "Engine constructed!\n"; }
+
   void Run() {
     using namespace std::chrono_literals;
     SDL_Event Event;
@@ -60,7 +66,7 @@ public:
       }
       // do not draw if we are minimized
       if (IsRendering) {
-        Renderer.Render();
+        Vulkan.Render();
         std::cout << "rendered frame " << frame_number++ << std::endl;
         std::cout << "Enough. finishing";
         IsRendering = false;

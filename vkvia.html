@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<HTML lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<HEAD>
+    <TITLE>LunarG VIA</TITLE>
+    <META charset="UTF-8">
+    <style media="screen" type="text/css">
+        html {
+            background-color: #0b1e48;
+            background-image: url("https://vulkan.lunarg.com/img/VIATitle.png"), url("https://vulkan.lunarg.com/img/VIABackground.jpg");
+            background-position: center top, center;
+            -webkit-background-size: auto, cover;
+            -moz-background-size: auto, cover;
+            -o-background-size: auto, cover;
+            background-size: auto, cover;
+            background-attachment: scroll, fixed;
+            background-repeat: no-repeat, no-repeat;
+        }
+        h1.section {
+            font-family: sans-serif;
+            font-size: 35px;
+            color: #FFFFFF;
+        }
+        h1.version {
+            font-family: sans-serif;
+            font-size: 25px;
+            color: #FFFFFF;
+        }
+        h2.note {
+            font-family: sans-serif;
+            font-size: 12px;
+            color: #FFFFFF;
+        }
+        table {
+            min-width: 600px;
+            width: 70%;
+            border-collapse: collapse;
+            border-color: grey;
+            font-family: sans-serif;
+        }
+        td.header {
+            padding: 18px;
+            border: 1px solid #ccc;
+            font-size: 18px;
+            color: #fff;
+        }
+        td.odd {
+            padding: 10px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            color: rgb(255, 255, 255);
+        }
+        td.even {
+            padding: 10px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            color: rgb(220, 220, 220);
+        }
+        tr.header {
+            background-color: rgba(64,64,64,0.75);
+        }
+        tr.odd {
+            background-color: rgba(0,0,0,0.6);
+        }
+        tr.even {
+            background-color: rgba(0,0,0,0.7);
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script type="text/javascript">
+        $( document ).ready(function() {
+            $('table tr:not(.header)').hide();
+            $('.header').click(function() {
+                $(this).nextUntil('tr.header').slideToggle(300);
+            });
+        });
+    </script>
+</HEAD>
+
+<BODY>
+
+    <BR />
+    <BR />
+    <BR />
+    <BR />
+    <BR />
+    <BR />
+    <BR />
+    <BR />
+    <BR />
+    <BR />
+    <BR />
+    <BR />
+    <BR />
+    <BR />
+    <BR />
+<center><h2 class="note">< NOTE: Click on section name to expand table ></h2></center>
+    <BR />
+    <H1 class="section"><center>System Info</center></h1>
+    <table align="center">
+        <tr class="header">
+            <td colspan="3" class="header">Environment</td>
+        </tr>
+        <tr class="odd">
+            <td class="odd">Linux</td>
+            <td class="odd"></td>
+            <td class="odd"></td>
+        </tr>
+        <tr class="even">
+            <td class="even"></td>
+            <td class="even">Distro</td>
+            <td class="even">NixOS 24.11 (Vicuna)</td>
+        </tr>
+        <tr class="odd">
+            <td class="odd"></td>
+            <td class="odd">Kernel Build</td>
+            <td class="odd">6.6.54</td>
+        </tr>
+        <tr class="even">
+            <td class="even"></td>
+            <td class="even">Machine Target</td>
+            <td class="even">x86_64</td>
+        </tr>
+        <tr class="odd">
+            <td class="odd"></td>
+            <td class="odd">Version</td>
+            <td class="odd">#1-NixOS SMP PREEMPT_DYNAMIC Fri Oct  4 14:30:05 UTC 2024</td>
+        </tr>
+        <tr class="even">
+            <td class="even"></td>
+            <td class="even">LD_LIBRARY_PATH</td>
+            <td class="even">/nix/store/22nxhmsfcv2q2rpkmfvzwg2w5z1l231z-gcc-13.3.0-lib:/nix/store/dnzbfkcdc1qj805nw84xc8qpck7i8f28-glfw-3.4/lib:/nix/store/p1ackxjqznm2q5dl3r178wp487q86jig-freetype-2.13.2/lib:/nix/store/9xrls1mp0qpz6mbdfzx98nhqkkm5ygz8-vulkan-loader-1.3.290.0/lib:/nix/store/hzrh3zsbqlwp19fmvswr7ykcykybsx5j-vulkan-validation-layers-1.3.290.0/lib</td>
+        </tr>
+        <tr class="odd">
+            <td class="odd"></td>
+            <td class="odd">DISPLAY</td>
+            <td class="odd">:0</td>
+        </tr>
+        <tr class="even">
+            <td class="even"></td>
+            <td class="even">WAYLAND_DISPLAY</td>
+            <td class="even">wayland-1</td>
+        </tr>
+    </table>
+    <table align="center">
+        <tr class="header">
+            <td colspan="3" class="header">Hardware</td>
+        </tr>
+        <tr class="odd">
+            <td class="odd">CPUs</td>
+            <td class="odd">8</td>
+            <td class="odd"></td>
+        </tr>
+        <tr class="even">
+            <td class="even">Memory</td>
+            <td class="even">Physical Available</td>
+            <td class="even">15 GB</td>
+        </tr>
+        <tr class="odd">
+            <td class="odd">System Disk Space</td>
+            <td class="odd">Free</td>
+            <td class="odd">119 GB</td>
+        </tr>
+        <tr class="even">
+            <td class="even">Current Dir Disk Space</td>
+            <td class="even">Free</td>
+            <td class="even">120G</td>
+        </tr>
+    </table>
+    <table align="center">
+        <tr class="header">
+            <td colspan="2" class="header">Executable Info</td>
+        </tr>
+        <tr class="odd">
+            <td class="odd">Exe Directory</td>
+            <td class="odd">/nix/store/hlqks8xx0w8h9lvqzz2v3krik2c7gqd9-vulkan-tools-lunarg-1.3.290.0/bin</td>
+        </tr>
+        <tr class="even">
+            <td class="even">Current Directory</td>
+            <td class="even">/home/lyka/Code/KalanEngine</td>
+        </tr>
+        <tr class="odd">
+            <td class="odd">App Version</td>
+            <td class="odd">Version 1.3</td>
+        </tr>
+        <tr class="even">
+            <td class="even">Vulkan API Version</td>
+            <td class="even">1.3.290</td>
+        </tr>
+        <tr class="odd">
+            <td class="odd">Byte Format</td>
+            <td class="odd">64-bit</td>
+        </tr>
+    </table>
+    <table align="center">
+        <tr class="header">
+            <td colspan="3" class="header">Vulkan Driver Info</td>
+        </tr>
+        <tr class="odd">
+            <td class="odd">Standard Paths</td>
+            <td class="odd"></td>
+            <td class="odd"></td>
+        </tr>
+        <tr class="even">
+            <td align="right" class="even">/etc/vulkan/icd.d</td>
+            <td class="even">No such folder</td>
+            <td class="even"></td>
+        </tr>
+        <tr class="odd">
+            <td align="right" class="odd">/usr/share/vulkan/icd.d</td>
+            <td class="odd">No such folder</td>
+            <td class="odd"></td>
+        </tr>
+        <tr class="even">
+            <td align="right" class="even">/usr/local/etc/vulkan/icd.d</td>
+            <td class="even">No such folder</td>
+            <td class="even"></td>
+        </tr>
+        <tr class="odd">
+            <td align="right" class="odd">/usr/local/share/vulkan/icd.d</td>
+            <td class="odd">No such folder</td>
+            <td class="odd"></td>
+        </tr>
+        <tr class="even">
+            <td align="right" class="even">/home/lyka/.local/share/vulkan/icd.d</td>
+            <td class="even">No such folder</td>
+            <td class="even"></td>
+        </tr>
+    </table>
+    <table align="center">
+        <tr class="header">
+            <td colspan="3" class="header">Vulkan Runtimes</td>
+        </tr>
+        <tr class="odd">
+            <td class="odd">Possible Runtime Folders</td>
+            <td class="odd"></td>
+            <td class="odd"></td>
+        </tr>
+        <tr class="even">
+            <td align="right" class="even">/usr/lib</td>
+            <td class="even">No such folder</td>
+            <td class="even"></td>
+        </tr>
+        <tr class="odd">
+            <td align="right" class="odd">/usr/lib/x86_64-linux-gnu</td>
+            <td class="odd">No such folder</td>
+            <td class="odd"></td>
+        </tr>
+        <tr class="even">
+            <td align="right" class="even">/usr/lib64</td>
+            <td class="even">No such folder</td>
+            <td class="even"></td>
+        </tr>
+        <tr class="odd">
+            <td align="right" class="odd">/usr/local/lib</td>
+            <td class="odd">No such folder</td>
+            <td class="odd"></td>
+        </tr>
+        <tr class="even">
+            <td align="right" class="even">/usr/local/lib64</td>
+            <td class="even">No such folder</td>
+            <td class="even"></td>
+        </tr>
+        <tr class="odd">
+            <td align="right" class="odd">/nix/store/22nxhmsfcv2q2rpkmfvzwg2w5z1l231z-gcc-13.3.0-lib</td>
+            <td class="odd"></td>
+            <td class="odd"></td>
+        </tr>
+        <tr class="even">
+            <td class="even"></td>
+            <td class="even">No libvulkan.so files found</td>
+            <td class="even"></td>
+        </tr>
+        <tr class="odd">
+            <td align="right" class="odd">/nix/store/dnzbfkcdc1qj805nw84xc8qpck7i8f28-glfw-3.4/lib</td>
+            <td class="odd"></td>
+            <td class="odd"></td>
+        </tr>
+        <tr class="even">
+            <td class="even"></td>
+            <td class="even">No libvulkan.so files found</td>
+            <td class="even"></td>
+        </tr>
+        <tr class="odd">
+            <td align="right" class="odd">/nix/store/p1ackxjqznm2q5dl3r178wp487q86jig-freetype-2.13.2/lib</td>
+            <td class="odd"></td>
+            <td class="odd"></td>
+        </tr>
+        <tr class="even">
+            <td class="even"></td>
+            <td class="even">No libvulkan.so files found</td>
+            <td class="even"></td>
+        </tr>
+        <tr class="odd">
+            <td align="right" class="odd">/nix/store/9xrls1mp0qpz6mbdfzx98nhqkkm5ygz8-vulkan-loader-1.3.290.0/lib</td>
+            <td class="odd"></td>
+            <td class="odd"></td>
+        </tr>
+        <tr class="even">
+            <td align="right" class="even">[0]</td>
+            <td class="even">/nix/store/9xrls1mp0qpz6mbdfzx98nhqkkm5ygz8-vulkan-loader-1.3.290.0/lib/libvulkan.so.1</td>
+            <td class="even">libvulkan.so.1.3.290</td>
+        </tr>
+        <tr class="odd">
+            <td align="right" class="odd">/nix/store/hzrh3zsbqlwp19fmvswr7ykcykybsx5j-vulkan-validation-layers-1.3.290.0/lib</td>
+            <td class="odd"></td>
+            <td class="odd"></td>
+        </tr>
+        <tr class="even">
+            <td class="even"></td>
+            <td class="even">No libvulkan.so files found</td>
+            <td class="even"></td>
+        </tr>
+        <tr class="odd">
+            <td class="odd">Runtime Folder Used By via</td>
+            <td class="odd">/nix/store/9xrls1mp0qpz6mbdfzx98nhqkkm5ygz8-vulkan-loader-1.3.290.0/lib</td>
+            <td class="odd"></td>
+        </tr>
+        <tr class="even">
+            <td align="right" class="even">[0]</td>
+            <td class="even">/nix/store/9xrls1mp0qpz6mbdfzx98nhqkkm5ygz8-vulkan-loader-1.3.290.0/lib/libvulkan.so.1</td>
+            <td class="even">libvulkan.so.1.3.290</td>
+        </tr>
+    </table>
+    <table align="center">
+        <tr class="header">
+            <td colspan="4" class="header">Vulkan SDKs</td>
+        </tr>
+        <tr class="odd">
+            <td class="odd"></td>
+            <td class="odd"></td>
+            <td class="odd">No installed SDKs found</td>
+            <td class="odd"></td>
+        </tr>
+    </table>
+    <table align="center">
+        <tr class="header">
+            <td colspan="4" class="header">Vulkan Implicit Layers</td>
+        </tr>
+        <tr class="odd">
+            <td align="right" class="odd">/etc/vulkan/implicit_layer.d</td>
+            <td class="odd">Directory does not exist</td>
+            <td class="odd"></td>
+            <td class="odd"></td>
+        </tr>
+        <tr class="even">
+            <td align="right" class="even">/usr/share/vulkan/implicit_layer.d</td>
+            <td class="even">Directory does not exist</td>
+            <td class="even"></td>
+            <td class="even"></td>
+        </tr>
+        <tr class="odd">
+            <td align="right" class="odd">/usr/local/etc/vulkan/implicit_layer.d</td>
+            <td class="odd">Directory does not exist</td>
+            <td class="odd"></td>
+            <td class="odd"></td>
+        </tr>
+        <tr class="even">
+            <td align="right" class="even">/usr/local/share/vulkan/implicit_layer.d</td>
+            <td class="even">Directory does not exist</td>
+            <td class="even"></td>
+            <td class="even"></td>
+        </tr>
+        <tr class="odd">
+            <td align="right" class="odd">/home/lyka/.local/share/vulkan/implicit_layer.d</td>
+            <td class="odd"></td>
+            <td class="odd"></td>
+            <td class="odd"></td>
+        </tr>
+    </table>
+    <table align="center">
+        <tr class="header">
+            <td colspan="4" class="header">Vulkan Explicit Layers</td>
+        </tr>
+        <tr class="odd">
+            <td class="odd">VK_LAYER_PATH</td>
+            <td class="odd"></td>
+            <td class="odd"></td>
+            <td class="odd"></td>
+        </tr>
+        <tr class="even">
+            <td class="even"></td>
+            <td align="right" class="even">Path 0</td>
+            <td class="even">/nix/store/hzrh3zsbqlwp19fmvswr7ykcykybsx5j-vulkan-validation-layers-1.3.290.0/share/vulkan/explicit_layer.d</td>
+            <td class="even"></td>
+        </tr>
+        <tr class="odd">
+            <td class="odd"></td>
+            <td align="right" class="odd">[0]</td>
+            <td class="odd">VkLayer_khronos_validation.json</td>
+            <td class="odd"></td>
+        </tr>
+        <tr class="even">
+            <td class="even"></td>
+            <td class="even"></td>
+            <td class="even">Name</td>
+            <td class="even">VK_LAYER_KHRONOS_validation</td>
+        </tr>
+        <tr class="odd">
+            <td class="odd"></td>
+            <td class="odd"></td>
+            <td class="odd">Description</td>
+            <td class="odd">Khronos Validation Layer</td>
+        </tr>
+        <tr class="even">
+            <td class="even"></td>
+            <td class="even"></td>
+            <td class="even">API Version</td>
+            <td class="even">1.3.290</td>
+        </tr>
+        <tr class="odd">
+            <td class="odd"></td>
+            <td class="odd"></td>
+            <td class="odd">JSON File Version</td>
+            <td class="odd">1.2.0</td>
+        </tr>
+        <tr class="even">
+            <td class="even"></td>
+            <td class="even"></td>
+            <td class="even">Library Path</td>
+            <td class="even">/nix/store/hzrh3zsbqlwp19fmvswr7ykcykybsx5j-vulkan-validation-layers-1.3.290.0/lib/libVkLayer_khronos_validation.so</td>
+        </tr>
+        <tr class="odd">
+            <td class="odd"></td>
+            <td class="odd"></td>
+            <td class="odd">Device Extensions</td>
+            <td class="odd">3</td>
+        </tr>
+        <tr class="even">
+            <td class="even"></td>
+            <td class="even"></td>
+            <td align="right" class="even">[0]</td>
+            <td class="even">VK_EXT_debug_marker</td>
+        </tr>
+        <tr class="odd">
+            <td class="odd"></td>
+            <td class="odd"></td>
+            <td align="right" class="odd">[0]</td>
+            <td class="odd">VK_EXT_validation_cache</td>
+        </tr>
+        <tr class="even">
+            <td class="even"></td>
+            <td class="even"></td>
+            <td align="right" class="even">[0]</td>
+            <td class="even">VK_EXT_tooling_info</td>
+        </tr>
+        <tr class="odd">
+            <td class="odd"></td>
+            <td class="odd"></td>
+            <td class="odd">Instance Extensions</td>
+            <td class="odd">4</td>
+        </tr>
+        <tr class="even">
+            <td class="even"></td>
+            <td class="even"></td>
+            <td align="right" class="even">[0]</td>
+            <td class="even">VK_EXT_debug_report</td>
+        </tr>
+        <tr class="odd">
+            <td class="odd"></td>
+            <td class="odd"></td>
+            <td align="right" class="odd">[0]</td>
+            <td class="odd">VK_EXT_debug_utils</td>
+        </tr>
+        <tr class="even">
+            <td class="even"></td>
+            <td class="even"></td>
+            <td align="right" class="even">[0]</td>
+            <td class="even">VK_EXT_layer_settings</td>
+        </tr>
+        <tr class="odd">
+            <td class="odd"></td>
+            <td class="odd"></td>
+            <td align="right" class="odd">[0]</td>
+            <td class="odd">VK_EXT_validation_features</td>
+        </tr>
+        <tr class="even">
+            <td class="even">Standard Paths</td>
+            <td class="even"></td>
+            <td class="even"></td>
+            <td class="even"></td>
+        </tr>
+        <tr class="odd">
+            <td class="odd"></td>
+            <td align="right" class="odd">/etc/vulkan</td>
+            <td class="odd">/etc/vulkan/explicit_layer.d</td>
+            <td class="odd">No such folder</td>
+        </tr>
+        <tr class="even">
+            <td class="even"></td>
+            <td align="right" class="even">/usr/share/vulkan</td>
+            <td class="even">/usr/share/vulkan/explicit_layer.d</td>
+            <td class="even">No such folder</td>
+        </tr>
+        <tr class="odd">
+            <td class="odd"></td>
+            <td align="right" class="odd">/usr/local/etc/vulkan</td>
+            <td class="odd">/usr/local/etc/vulkan/explicit_layer.d</td>
+            <td class="odd">No such folder</td>
+        </tr>
+        <tr class="even">
+            <td class="even"></td>
+            <td align="right" class="even">/usr/local/share/vulkan</td>
+            <td class="even">/usr/local/share/vulkan/explicit_layer.d</td>
+            <td class="even">No such folder</td>
+        </tr>
+        <tr class="odd">
+            <td class="odd"></td>
+            <td align="right" class="odd">$HOME/.local/share/vulkan/explicit_layer.d</td>
+            <td class="odd">/home/lyka/.local/share/vulkan/explicit_layer.d</td>
+            <td class="odd">No such folder</td>
+        </tr>
+    </table>
+    <table align="center">
+        <tr class="header">
+            <td colspan="4" class="header">Vulkan Layer Settings File</td>
+        </tr>
+        <tr class="odd">
+            <td class="odd">VK_LAYER_SETTINGS_PATH</td>
+            <td class="odd">Not Defined</td>
+            <td class="odd"></td>
+            <td class="odd"></td>
+        </tr>
+        <tr class="even">
+            <td class="even"></td>
+            <td class="even">/etc/vulkan/settings.d/vk_layer_settings.txt</td>
+            <td class="even">File not found</td>
+            <td class="even"></td>
+        </tr>
+        <tr class="odd">
+            <td class="odd"></td>
+            <td class="odd">/usr/share/vulkan/settings.d/vk_layer_settings.txt</td>
+            <td class="odd">File not found</td>
+            <td class="odd"></td>
+        </tr>
+        <tr class="even">
+            <td class="even"></td>
+            <td class="even">/usr/local/etc/vulkan/settings.d/vk_layer_settings.txt</td>
+            <td class="even">File not found</td>
+            <td class="even"></td>
+        </tr>
+        <tr class="odd">
+            <td class="odd"></td>
+            <td class="odd">/usr/local/share/vulkan/settings.d/vk_layer_settings.txt</td>
+            <td class="odd">File not found</td>
+            <td class="odd"></td>
+        </tr>
+        <tr class="even">
+            <td class="even"></td>
+            <td class="even">/home/lyka/.local/share/vulkan/settings.d/vk_layer_settings.txt</td>
+            <td class="even">File not found</td>
+            <td class="even"></td>
+        </tr>
+    </table>
+    <BR/>
+    <BR/>
+</BODY>
+
+</HTML>
