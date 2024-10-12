@@ -1,5 +1,4 @@
 #pragma once
-#include "common.hpp"
 #include "physical_device.hpp"
 
 // TODO(lyka): Add support for multiple queue families

@@ -32,7 +32,8 @@ struct physical_device {
     };
     auto physicalDeviceIt = std::ranges::find_if(devices, [&](VkPhysicalDevice d) {
       PhysicalDevice = d;
-      return GetQueueIndex(Surface) != -1 && ExtensionsSupported(d, {VK_KHR_SWAPCHAIN_EXTENSION_NAME});
+      return GetQueueIndex(Surface) != -1 && ExtensionsSupported(d, {VK_KHR_SWAPCHAIN_EXTENSION_NAME}) &&
+             GetSwapchainSupport(Surface).isok();
     }); // TODO(lyka): Replace with the best one
 
     if (physicalDeviceIt == devices.end()) {
@@ -55,5 +56,28 @@ struct physical_device {
       }
     }
     return -1;
+  }
+
+  struct SwapChainSupportDetails {
+    VkSurfaceCapabilitiesKHR capabilities{};
+    std::vector<VkSurfaceFormatKHR> formats;
+    std::vector<VkPresentModeKHR> presentModes;
+    [[nodiscard]] auto isok() const -> bool { return !formats.empty() && !presentModes.empty(); }
+  };
+  auto GetSwapchainSupport(VkSurfaceKHR surface) const -> SwapChainSupportDetails {
+    SwapChainSupportDetails details;
+    vkGetPhysicalDeviceSurfaceCapabilitiesKHR(PhysicalDevice, surface, &details.capabilities);
+
+    uint32_t formatCount = 0;
+    vkGetPhysicalDeviceSurfaceFormatsKHR(PhysicalDevice, surface, &formatCount, nullptr);
+    details.formats.resize(formatCount);
+    vkGetPhysicalDeviceSurfaceFormatsKHR(PhysicalDevice, surface, &formatCount, details.formats.data());
+
+    uint32_t presentModeCount = 0;
+    vkGetPhysicalDeviceSurfacePresentModesKHR(PhysicalDevice, surface, &presentModeCount, nullptr);
+    details.presentModes.resize(presentModeCount);
+    vkGetPhysicalDeviceSurfacePresentModesKHR(PhysicalDevice, surface, &presentModeCount, details.presentModes.data());
+
+    return details;
   }
 };
